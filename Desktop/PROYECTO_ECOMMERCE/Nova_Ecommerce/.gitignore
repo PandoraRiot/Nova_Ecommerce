@@ -1,33 +1,81 @@
-HELP.md
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+# =========================================================
+# Archivo .gitignore para el proyecto Nova_Ecommerce
+# = Este archivo especifica los archivos y directorios que Git debe ignorar
+# = cuando se realice un commit, asegurando que las credenciales
+# = y archivos temporales/generados por IDE no se incluyan en el repositorio.
+# =========================================================
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+# ---------------------------------------------------------
+# Directorios de Construcción y Archivos Temporales
+# ---------------------------------------------------------
+/target/             # Directorio de salida de compilación de Maven
+build/               # Directorio de salida de compilación genérico (ej: Gradle)
+*.log                # Archivos de log
+logs/                # Directorio de logs
+*.class              # Archivos compilados de Java
+*.jar                # Archivos JAR (distribuibles)
+*.war                # Archivos WAR (Web Archive)
+*.zip                # Archivos comprimidos (a menudo usados para builds)
+*.rar                # Archivos comprimidos
+*.tar                # Archivos tar
+*.gz                 # Archivos gzip
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
+# ---------------------------------------------------------
+# Archivos de IDE (IntelliJ IDEA, NetBeans, VS Code)
+# ---------------------------------------------------------
+# IntelliJ IDEA
+.idea/               # Directorio de configuración de IntelliJ IDEA
+*.iml                # Archivos de módulo de IntelliJ IDEA
+*.iws                # Archivos de espacio de trabajo de IntelliJ IDEA
+*.ipr                # Archivos de proyecto de IntelliJ IDEA
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
+# NetBeans
+/nbproject/private/  # Archivos privados del proyecto NetBeans (configuraciones de usuario)
+/nbbuild/            # Directorio de construcción de NetBeans
+/dist/               # Directorio de distribución de NetBeans
+/nbdist/             # Directorio de distribución de NetBeans (adicional)
+/.nb-gradle/         # Archivos de configuración de Gradle para NetBeans
+# Excepciones para archivos build dentro de src/main y src/test (si es necesario)
+# Generalmente, estos no deberían existir allí, pero se mantienen por si acaso.
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-### VS Code ###
-.vscode/
+# VS Code
+.vscode/             # Directorio de configuración de VS Code
+
+# ---------------------------------------------------------
+# Credenciales y Archivos de Configuración Local (¡IMPORTANTE!)
+# No deben ser versionados por seguridad.
+# ---------------------------------------------------------
+# Archivo de propiedades específico para el perfil 'nova' que contiene credenciales de BD.
+src/main/resources/application-nova.properties
+# Si usas un archivo application.properties principal para credenciales:
+
+# Otros formatos de configuración que puedan contener credenciales:
+*.yaml
+*.yml
+
+# ---------------------------------------------------------
+# Dependencias de Maven
+# ---------------------------------------------------------
+.m2/                 # Cache local de Maven
+
+# ---------------------------------------------------------
+# Archivos de Sistema Operativo
+# ---------------------------------------------------------
+.DS_Store            # Archivos de macOS
+Thumbs.db            # Archivos de Windows
+
+# ---------------------------------------------------------
+# Archivos de Base de Datos (Locales, no quiero versionarlos)
+# ---------------------------------------------------------
+*.db                 # Archivos de bases de datos genéricos
+*.sqlite             # Bases de datos SQLite
+*.mv.db              # Archivos de base de datos H2
+
+# ---------------------------------------------------------
+# Excepciones: Archivos que SÍ qyueri versionar a pesar de las reglas anteriores
+# ---------------------------------------------------------
+# Script de la base de datos con el esquema SQL documentado.
+# Este archivo no debe contener credenciales ni datos sensibles.
+!/src/main/resources/db/schema.sql
